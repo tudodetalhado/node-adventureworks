@@ -44,6 +44,7 @@ To start:
       }
     };
   ```
+  !please note that tedious supports only sql authentication!
 
 after that ....
 
