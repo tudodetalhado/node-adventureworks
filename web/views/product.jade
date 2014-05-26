@@ -1,0 +1,13 @@
+extends layout
+
+block content
+	div.container
+		
+		div.panel.panel-info
+			div.panel-heading # #{product.id}
+			div.panel-body
+				h3 #{product.name}
+				p #{product.productnumber}
+				p #{product.listprice} $
+
+		a(href="/products") Back to product list
