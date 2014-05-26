@@ -1,0 +1,27 @@
+extends layout
+block content
+    div.container
+        div.panel.panel-default
+            div.panel-heading Found #{products.length} Products
+            div.panel-body
+                table.table
+                    thead
+                        tr
+                            th #
+                            th Name
+                            th Product Number
+                            th List price
+                            th Details
+                
+                    tbody
+                    for product in products
+                        tr
+                            td #{product.id}
+                            td #{product.name}
+                            td #{product.productnumber}
+                            td #{product.listprice}
+                            td 
+                                a(href="/products/#{product.id}") Details
+            div.panel-footer
+
+         
