@@ -7,7 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Felix Becker",
-  "license": "ISC",
   "devDependencies": {
     "should": "~3.3.2",
     "mocha": "~1.19.0"
