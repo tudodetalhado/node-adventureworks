@@ -16,11 +16,9 @@ module.exports = function(config){
 			var query = sql.query;
 			var parameters = sql.parameters || [];
 			
-            pool.requestConnection(function(err,connection){
-				if(err){
-					console.log("sql_db: execQuery:" +err);
-					return clb(err,null);
-				}
+        pool.requestConnection(function(err,connection){
+				if(err){ return clb(err,null);}
+				
 				var result = [];
 				
 				var req = new Request(query,function(err,count){

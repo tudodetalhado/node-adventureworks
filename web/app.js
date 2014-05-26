@@ -5,13 +5,15 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// SET UP the config to the SQL SERVER
+// Tidious only supports sql server authentication
 var config = {
-    userName: 'adw',
-    password: 'adw',
-    server: 'FBECKER-PC',
+    userName: 'USERNAME',
+    password: 'PASSWORD',
+    server: 'SERVER',
     options:{
         database: 'AdventureWorks2008R2',
-        instanceName:'DEV2008R2'
+        instanceName:'SQL_SERVER_INSTANCE'
 
     }
 };

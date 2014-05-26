@@ -1,5 +1,7 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div.container
+    h1= title
+    p Welcome to #{title}
+    a(href="/products").btn.btn-primary.btn-lg  Move to the products section
