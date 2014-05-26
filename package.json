@@ -3,9 +3,6 @@
   "version": "0.0.0",
   "description": "Layerd data access against sql server adventure works sample database",
   "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "Felix Becker",
   "devDependencies": {
     "should": "~3.3.2",
