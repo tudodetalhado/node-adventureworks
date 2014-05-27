@@ -21,6 +21,7 @@ it uses:
   - https://github.com/pekim/tedious Tedious to access the SQL SERVER database
   - Express.js for the web ui - https://github.com/visionmedia/express
   - This app accesses SQL SERVERS example data from the AdventureWorks 2008R2 SR1 database which can be downloaded at http://msftdbprodsamples.codeplex.com/releases/view/55926
+  http://msftdbprodsamples.codeplex.com/releases/view/59211
   
 ## How to get started...
 
