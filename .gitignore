@@ -56,4 +56,4 @@ build/Release
 node_modules
 >>>>>>> fb5d0af76f2c0b3c4c20ba79e76c47b58e7d4790
 
-dev.config.js
+web/dev.config.js
