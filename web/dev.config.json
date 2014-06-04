@@ -1,9 +1,0 @@
-{
-    "userName": "adw",
-    "password": "adw",
-    "server": "FBECKER-NB",
-    "options":{
-        "database": "AdventureWorksLT2012",
-        "instanceName":"SQLEXPRESS"
-    }
-}
