@@ -3,14 +3,16 @@ var _ = require('underscore');
 module.exports = function(db){
 
 	var mapCollection = function(data,fn,clb){
-		
+		var result = {};
+        
 		var collection = [];
 		_.each(data,function(item){
 			fn(item,function(dto){
 				collection.push(dto)
 			});
 		});
-		return clb(collection);
+        result.products = collection;
+		return clb(result);
 	};
 
 	var mapProduct = function(data,clb){
@@ -18,8 +20,8 @@ module.exports = function(db){
 		var product = {};
 		product.id = data[0].value;
 		product.name = data[1].value;
-		product.productnumber = data[2].value;
-		product.listprice = data[3].value;
+		product.product_number = data[2].value;
+		product.list_price = data[3].value;
 		return clb(product);
 	};
 
@@ -27,12 +29,14 @@ module.exports = function(db){
 		getProducts :function(clb){
 			
 			var sql = {};
-			sql.query = "select  productid,name,productnumber, listprice from [Production].[Product]";
+			sql.query = "select productid,name,productnumber, listprice from [saleslt].[Product]";
 			sql.parameters =[];
 
 			db.execQuery(sql,function(error,result){
-				if(error){return clb(error,null)};
-
+				if(error){
+                  console.log(error);
+                  return clb(error,null)};
+                
 				mapCollection(result,mapProduct, function(collection){
 					return clb(null,collection);
 				});
@@ -41,7 +45,7 @@ module.exports = function(db){
 		},
 		getProductByID :function(id,clb){
 			var sql = {};
-			sql.query = "select productid,name,productnumber,listprice from [Production].[Product] where productid = @id";
+			sql.query = "select productid,name,productnumber,listprice from [saleslt].[Product] where productid = @id";
 			sql.parameters = [];
 			sql.parameters.push({name:'id',type:'Int',value: id});
 
@@ -52,7 +56,9 @@ module.exports = function(db){
 				};
 
 				mapProduct(result[0], function(product){
-					return clb(null,product);
+				  var result = {};
+                  result.product = product;
+                  return clb(null,result);
 				});
 				
 			});

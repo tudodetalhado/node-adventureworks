@@ -18,9 +18,10 @@ var config = {
     }
 };
 
+var dbConfig = require('./dev.config.json') || config;
 
 var SqlDb = require('../data/sql_db');
-var sqlDb = new SqlDb(config);
+var sqlDb = new SqlDb(dbConfig);
 var Repository = require('../data/repository');
 var repository = new Repository(sqlDb);
 var DataService = require('../data/data_service');
@@ -30,6 +31,7 @@ var dataService = new DataService(repository);
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var products = require('./routes/products');
+var api = require('./routes/api');
 
 var app = express();
 
@@ -52,8 +54,10 @@ app.use(function(req, res, next) {
 });
 
 app.use('/', routes);
+app.use('/api', api);
 app.use('/users', users);
 app.use('/products',products);
+app.use('/app',express.static(__dirname +'/spa'));
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {

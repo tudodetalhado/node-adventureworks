@@ -3,5 +3,13 @@ extends layout
 block content
   div.container
     h1= title
-    p Welcome to #{title}
-    a(href="/products").btn.btn-primary.btn-lg  Move to the products section
+    h3 Please select your app of choice!
+
+    div.row
+        div.col-md-4.col-sm-6
+            div.wrath-content-box
+                a(href="/products").btn.btn-primary.btn-lg  Move to the products section <br /> (server rendered html)
+        div.col-md-4.col-sm-6
+            div.wrath-content-box
+                a(href="/app/#/products").btn.btn-info.btn-lg  Move to the products section <br /> (single page app with Ember.js)
+
